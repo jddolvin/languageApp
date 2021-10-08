@@ -45,6 +45,10 @@ let app = {
     });
     this.updateStats();
     this.showQuestion(questions[this.currentPosition]);
+    let resetBtn = document.getElementById("resetBtn");
+    resetBtn.addEventListener("click", () => {
+      this.resetScore();
+    });
   },
   showQuestion: function (question) {
     let titleDiv = document.getElementById("title");
@@ -94,6 +98,11 @@ let app = {
       result = `Wrong! Correct answer: ${correctAnswerText}`;
     }
     resultDiv.textContent = result;
+  },
+
+  resetScore: function () {
+    this.score = 0;
+    this.updateStats();
   },
 };
 
